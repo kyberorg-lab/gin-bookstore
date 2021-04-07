@@ -28,3 +28,6 @@ test.db
 
 .idea
 *.iml
+
+docker/db
+docker/pgadmin
