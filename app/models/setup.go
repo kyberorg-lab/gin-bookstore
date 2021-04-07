@@ -7,8 +7,8 @@ import (
 
 var DB *gorm.DB
 
-func ConnectDatabase() {
-	dsn := "host=db user=slon dbname=bookstore port=5432 password=slonopass sslmode=disable"
+func ConnectDatabase(params *PostgreParams) {
+	dsn := params.toDSN()
 	database, err := gorm.Open(postgres.New(postgres.Config{
 		DSN: dsn,
 	}))

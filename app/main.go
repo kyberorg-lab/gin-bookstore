@@ -1,10 +1,15 @@
 package main
 
 import (
-	"github.com/rahmanfadhil/gin-bookstore/controllers"
-	"github.com/rahmanfadhil/gin-bookstore/models"
+	"github.com/kyberorg/gin-bookstore/app/controllers"
+	"github.com/kyberorg/gin-bookstore/app/models"
 
 	"github.com/gin-gonic/gin"
+	"gopkg.in/alecthomas/kingpin.v2"
+)
+
+var (
+	dbName = kingpin.Flag()
 )
 
 func main() {
@@ -21,5 +26,6 @@ func main() {
 	r.DELETE("/books/:id", controllers.DeleteBook)
 
 	// Run the server
-	r.Run()
+	err := r.Run()
+	panic(err)
 }
